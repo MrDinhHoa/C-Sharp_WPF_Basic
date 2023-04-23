@@ -1,0 +1,37 @@
+﻿<Window x:Class="_13.WPF_Canvas.MVVM.View.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_13.WPF_Canvas.MVVM.View"
+        xmlns:ms="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:vm="clr-namespace:_13.WPF_Canvas.MVVM.ViewModel"
+        d:DataContext ="{d:DesignInstance Type=vm:MainViewModel}"
+        DataContext="{Binding Source={x:Static vm:MainViewModel.CanvasVM}}"
+        mc:Ignorable="d"
+        Title="MainView" Height="400" Width="500">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="10">
+            <TextBox 
+                     Margin="0,0,0,10"
+                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                     ms:HintAssist.Hint="Chiều rộng dầm"
+                     Text="{Binding BeamWidthText}"/>
+            <TextBox 
+                     Margin="0,0,0,10"
+                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                     ms:HintAssist.Hint="Chiều cao dầm"
+                     Text="{Binding BeamHeightText}"/>
+        </StackPanel>
+        <Canvas Grid.Column="1">
+            <Rectangle Width="{Binding BeamWidth}"
+                       Height="{Binding BeamHeight}" Stroke="Black"/>
+            
+        </Canvas>
+    </Grid>
+</Window>
