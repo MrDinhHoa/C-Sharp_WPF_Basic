@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:_13.WPF_Canvas.MVVM.View"
         xmlns:ms="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:vm="clr-namespace:_13.WPF_Canvas.MVVM.ViewModel"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         d:DataContext ="{d:DesignInstance Type=vm:MainViewModel}"
         DataContext="{Binding Source={x:Static vm:MainViewModel.CanvasVM}}"
         mc:Ignorable="d"
@@ -21,17 +22,23 @@
                      Margin="0,0,0,10"
                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
                      ms:HintAssist.Hint="Chiều rộng dầm"
-                     Text="{Binding BeamWidthText}"/>
+                     Text="{Binding BeamWidth}">
+                <b:Interaction.Triggers>
+                    <b:EventTrigger EventName="TextChanged">
+                        <b:InvokeCommandAction Command="{Binding CmdUpdateBWidth}"
+                                               CommandParameter="{x:Reference viewCanvas}"/>
+                    </b:EventTrigger>
+                </b:Interaction.Triggers>
+            </TextBox>
             <TextBox 
                      Margin="0,0,0,10"
                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
                      ms:HintAssist.Hint="Chiều cao dầm"
-                     Text="{Binding BeamHeightText}"/>
+                     Text="{Binding BeamHeight}"/>
         </StackPanel>
-        <Canvas Grid.Column="1">
-            <Rectangle Width="{Binding BeamWidth}"
-                       Height="{Binding BeamHeight}" Stroke="Black"/>
-            
+        <Canvas 
+            x:Name="viewCanvas"
+            Grid.Column="1">
         </Canvas>
     </Grid>
 </Window>

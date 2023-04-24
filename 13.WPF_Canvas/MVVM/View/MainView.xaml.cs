@@ -21,7 +21,11 @@ namespace _13.WPF_Canvas.MVVM.View
     {
         public MainView()
         {
+
             InitializeComponent();
+            
         }
+
+        
     }
 }
