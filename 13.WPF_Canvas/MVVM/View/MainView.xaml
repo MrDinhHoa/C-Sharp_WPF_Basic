@@ -9,12 +9,13 @@
         d:DataContext ="{d:DesignInstance Type=vm:MainViewModel}"
         DataContext="{Binding Source={x:Static vm:MainViewModel.canvas}}"
         mc:Ignorable="d"
-        Title="MainView" Height="400" Width="500">
+        WindowStartupLocation="CenterScreen"
+        Title="MainView" Height="600" Width="700">
 
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Margin="10">
             <TextBox x:Name="beamWidthBox"
@@ -22,14 +23,27 @@
                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
                      ms:HintAssist.Hint="Chiều rộng dầm"
                      Text="{Binding BeamWidth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                     MouseLeave="MoveLeave_beamWidth"/>
+                     MouseLeave="MoveLeave_beamSection"/>
 
             <TextBox x:Name="beamHeightBox"
                      Margin="0,0,0,10"
                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
                      ms:HintAssist.Hint="Chiều cao dầm"
                      Text="{Binding BeamHeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                     MouseLeave="MoveLeave_beamHeight"/>
+                     MouseLeave="MoveLeave_beamSection"/>
+
+            <TextBox x:Name="rebarTop1Box"
+                     Margin="0,0,0,10"
+                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                     ms:HintAssist.Hint="Số lượng thép lớp trên"
+                     Text="{Binding RebarNumberTop, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     MouseLeave="MoveLeave_beamSection"/>
+            <TextBox x:Name="rebarBot1Box"
+                     Margin="0,0,0,10"
+                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                     ms:HintAssist.Hint="Số lượng thép lớp dưới"
+                     Text="{Binding RebarNumberBot, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     MouseLeave="MoveLeave_beamSection"/>
         </StackPanel>
         <Canvas 
             x:Name="viewCanvas"
