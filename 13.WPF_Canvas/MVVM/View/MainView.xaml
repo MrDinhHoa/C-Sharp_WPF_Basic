@@ -6,9 +6,8 @@
         xmlns:local="clr-namespace:_13.WPF_Canvas.MVVM.View"
         xmlns:ms="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:vm="clr-namespace:_13.WPF_Canvas.MVVM.ViewModel"
-        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         d:DataContext ="{d:DesignInstance Type=vm:MainViewModel}"
-        DataContext="{Binding Source={x:Static vm:MainViewModel.CanvasVM}}"
+        DataContext="{Binding Source={x:Static vm:MainViewModel.canvas}}"
         mc:Ignorable="d"
         Title="MainView" Height="400" Width="500">
 
@@ -18,27 +17,24 @@
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Margin="10">
-            <TextBox 
+            <TextBox x:Name="beamWidthBox"
                      Margin="0,0,0,10"
                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
                      ms:HintAssist.Hint="Chiều rộng dầm"
-                     Text="{Binding BeamWidth}">
-                <b:Interaction.Triggers>
-                    <b:EventTrigger EventName="TextChanged">
-                        <b:InvokeCommandAction Command="{Binding CmdUpdateBWidth}"
-                                               CommandParameter="{x:Reference viewCanvas}"/>
-                    </b:EventTrigger>
-                </b:Interaction.Triggers>
-            </TextBox>
-            <TextBox 
+                     Text="{Binding BeamWidth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     MouseLeave="MoveLeave_beamWidth"/>
+
+            <TextBox x:Name="beamHeightBox"
                      Margin="0,0,0,10"
                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
                      ms:HintAssist.Hint="Chiều cao dầm"
-                     Text="{Binding BeamHeight}"/>
+                     Text="{Binding BeamHeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     MouseLeave="MoveLeave_beamHeight"/>
         </StackPanel>
         <Canvas 
             x:Name="viewCanvas"
-            Grid.Column="1">
+            Grid.Column="1"
+            Background="LightGoldenrodYellow">
         </Canvas>
     </Grid>
 </Window>

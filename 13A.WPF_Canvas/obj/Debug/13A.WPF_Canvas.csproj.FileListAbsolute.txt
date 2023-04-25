@@ -1,0 +1,14 @@
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\13A.WPF_Canvas\bin\Debug\13A.WPF_Canvas.exe.config
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\13A.WPF_Canvas\bin\Debug\13A.WPF_Canvas.exe
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\13A.WPF_Canvas\bin\Debug\13A.WPF_Canvas.pdb
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\13A.WPF_Canvas\obj\Debug\MainWindow.g.cs
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\13A.WPF_Canvas\obj\Debug\App.g.cs
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\13A.WPF_Canvas\obj\Debug\13A.WPF_Canvas_MarkupCompile.cache
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\13A.WPF_Canvas\obj\Debug\13A.WPF_Canvas_MarkupCompile.lref
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\13A.WPF_Canvas\obj\Debug\MainWindow.baml
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\13A.WPF_Canvas\obj\Debug\13A.WPF_Canvas.g.resources
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\13A.WPF_Canvas\obj\Debug\_13A.WPF_Canvas.Properties.Resources.resources
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\13A.WPF_Canvas\obj\Debug\13A.WPF_Canvas.csproj.GenerateResource.cache
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\13A.WPF_Canvas\obj\Debug\13A.WPF_Canvas.csproj.CoreCompileInputs.cache
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\13A.WPF_Canvas\obj\Debug\13A.WPF_Canvas.exe
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\13A.WPF_Canvas\obj\Debug\13A.WPF_Canvas.pdb

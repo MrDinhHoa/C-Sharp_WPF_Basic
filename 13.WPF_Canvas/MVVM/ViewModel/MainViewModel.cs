@@ -10,17 +10,18 @@ using _13.WPF_Canvas.MVVM.View;
 using BIMSoftLib;
 using BIMSoftLib.MVVM;
 using System.Windows.Input;
-using System.Windows;
 using Microsoft.Xaml.Behaviors.Core;
+using System.Windows.Controls;
+using System.Drawing;
 
 namespace _13.WPF_Canvas.MVVM.ViewModel
 {
-    class MainViewModel: PropertyChangedBase
+    public class MainViewModel: PropertyChangedBase
     {
-        public static MainView CanvasVM = new MainView();
+        public static Canvas canvas = new Canvas();
 
-        private double _beamWidth;
-        public double BeamWidth
+        private int _beamWidth;
+        public int BeamWidth
         {
             get
             {
@@ -33,8 +34,8 @@ namespace _13.WPF_Canvas.MVVM.ViewModel
             }
         }
 
-        private double _beamHeight;
-        public double BeamHeight
+        private int _beamHeight;
+        public int BeamHeight
         {
             get 
             {   
@@ -48,56 +49,7 @@ namespace _13.WPF_Canvas.MVVM.ViewModel
             }
         }
 
-        private string _beamWidthText;
-        public string BeamWidthText
-        {
-            get
-            {
-                return _beamWidthText;
-            }
-            set
-            {
-                _beamWidthText = value;
-                OnPropertyChanged("BeamWidthText");
-            }
-        }
 
-
-        private string _beamHeightText;
-        public string BeamHeightText
-        {
-            get
-            {
-                return _beamHeightText;
-            }
-            set
-            {
-                _beamHeightText = value;
-                OnPropertyChanged("BeamHeightText");
-            }
-        }
-
-        private ActionCommand _cmdUpdateBWidth;
-
-        public ICommand CmdUpdateBWidth
-        {
-            get
-            {
-                if (_cmdUpdateBWidth == null)
-                {
-                    _cmdUpdateBWidth = new ActionCommand(PerformCmdUpdateBWidth);
-                }
-
-                return _cmdUpdateBWidth;
-            }
-        }
-
-        private void PerformCmdUpdateBWidth(object par)
-        {
-            var kq = par;
-            MessageBox.Show("Text");
-
-        }
 
     }
 }

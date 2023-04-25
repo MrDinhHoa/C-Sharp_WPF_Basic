@@ -13,3 +13,18 @@ D:\STUDY\Programming\C-Sharp\01.CS_WPF_Basic\21.WPF_Style\obj\Debug\21.WPF_Style
 D:\STUDY\Programming\C-Sharp\01.CS_WPF_Basic\21.WPF_Style\obj\Debug\21.WPF_Style.csproj.CoreCompileInputs.cache
 D:\STUDY\Programming\C-Sharp\01.CS_WPF_Basic\21.WPF_Style\obj\Debug\21.WPF_Style.exe
 D:\STUDY\Programming\C-Sharp\01.CS_WPF_Basic\21.WPF_Style\obj\Debug\21.WPF_Style.pdb
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21.WPF_Style\bin\Debug\21.WPF_Style.exe.config
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21.WPF_Style\bin\Debug\21.WPF_Style.exe
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21.WPF_Style\bin\Debug\21.WPF_Style.pdb
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21.WPF_Style\obj\Debug\21.WPF_Style.csproj.AssemblyReference.cache
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21.WPF_Style\obj\Debug\MainWindow.g.cs
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21.WPF_Style\obj\Debug\App.g.cs
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21.WPF_Style\obj\Debug\21.WPF_Style_MarkupCompile.cache
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21.WPF_Style\obj\Debug\21.WPF_Style_MarkupCompile.lref
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21.WPF_Style\obj\Debug\MainWindow.baml
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21.WPF_Style\obj\Debug\21.WPF_Style.g.resources
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21.WPF_Style\obj\Debug\_21.WPF_Style.Properties.Resources.resources
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21.WPF_Style\obj\Debug\21.WPF_Style.csproj.GenerateResource.cache
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21.WPF_Style\obj\Debug\21.WPF_Style.csproj.CoreCompileInputs.cache
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21.WPF_Style\obj\Debug\21.WPF_Style.exe
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21.WPF_Style\obj\Debug\21.WPF_Style.pdb
