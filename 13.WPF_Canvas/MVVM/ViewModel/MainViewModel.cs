@@ -106,9 +106,28 @@ namespace _13.WPF_Canvas.MVVM.ViewModel
 
                 //Vẽ thép đai
                 //Path path = new Path();
-               
-                //Polyline polyline = new Polyline();
                 
+                //Polyline polyline = new Polyline();
+                System.Windows.Point point = new System.Windows.Point(0,50);
+                System.Windows.Size size = new System.Windows.Size(5, 10);
+                SweepDirection sweepDirection = SweepDirection.Clockwise;
+                ArcSegment arcSeg = new ArcSegment(point, size, Math.PI / 2, false, sweepDirection, true);
+                PathSegmentCollection myPathSegmentCollection = new PathSegmentCollection();
+                myPathSegmentCollection.Add(arcSeg);
+                PathFigure pthFigure = new PathFigure();
+                pthFigure.Segments = myPathSegmentCollection;
+
+                PathFigureCollection pthFigureCollection = new PathFigureCollection();
+                pthFigureCollection.Add(pthFigure);
+
+                PathGeometry pthGeometry = new PathGeometry();
+                pthGeometry.Figures = pthFigureCollection;
+
+                Path arcPath = new Path();
+                arcPath.Stroke = new SolidColorBrush(Colors.Black);
+                arcPath.StrokeThickness = 1;
+                arcPath.Data = pthGeometry;
+                viewCanvas.Children.Add(arcPath);
                 //Vẽ thép lớp trên 1
                 for (int i = 0; i < RebarNumberTop; i++)
                 {
