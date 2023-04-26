@@ -23,37 +23,16 @@ namespace _13.WPF_Canvas.MVVM.View
     public partial class MainView : Window
     {
         public MainViewModel _mainviewModel = new MainViewModel();
-        //private int BeamWidth;
-
-        //public int BeamWidth { get => _beamWidth; set => _beamWidth = value; }
-
-        //private int BeamHeight;
-        //public int BeamHeight { get => _beamHeight; set => _beamHeight = value; }
-
         public MainView()
         {
             InitializeComponent();
             DataContext = _mainviewModel;
         }
 
-
         private void MoveLeave_beamSection(object sender, System.Windows.Input.MouseEventArgs e)
         {
+            //    var textBox = sender as System.Windows.Controls.TextBox;
             _mainviewModel.DrawBeamSetion(viewCanvas);
-        }
-        //private void MoveLeave_beamHeight(object sender, System.Windows.Input.MouseEventArgs e)
-        //{
-        //    var textBox = sender as System.Windows.Controls.TextBox;
-        //    //BeamHeight = int.Parse(textBox.Text);
-        //    //DrawRectange();
-        //    _mainviewModel.DrawRectange(viewCanvas);
-        //}
-
-        private void MoveLeave_rebarNumberTop(object sender, System.Windows.Input.MouseEventArgs e)
-        {
-            //var textBox = sender as System.Windows.Controls.TextBox;
-            //BeamHeight = int.Parse(textBox.Text);
-            //_mainviewModel.DrawRebarTop(viewCanvas);
         }
     }
 }

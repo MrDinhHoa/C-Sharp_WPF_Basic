@@ -1,5 +1,4 @@
-﻿using DevExpress.Mvvm;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -13,12 +12,13 @@ using System.Windows.Input;
 using Microsoft.Xaml.Behaviors.Core;
 using System.Windows.Controls;
 using System.Drawing;
-using System.Windows.Shapes;
+using Rectangle = System.Windows.Shapes.Rectangle;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using Rectangle = System.Windows.Shapes.Rectangle;
 using Brushes = System.Windows.Media.Brushes;
-using DevExpress.Xpf.Core;
+using System.Windows.Forms;
+using System.Windows;
+using System.Windows.Shapes;
 
 namespace _13.WPF_Canvas.MVVM.ViewModel
 {
@@ -26,7 +26,7 @@ namespace _13.WPF_Canvas.MVVM.ViewModel
     {
         public static Canvas canvas = new Canvas();
 
-        private int _beamWidth;
+        private int _beamWidth = 200;
         public int BeamWidth
         {
             get
@@ -40,7 +40,7 @@ namespace _13.WPF_Canvas.MVVM.ViewModel
             }
         }
 
-        private int _beamHeight;
+        private int _beamHeight = 300;
         public int BeamHeight
         {
             get 
@@ -54,8 +54,8 @@ namespace _13.WPF_Canvas.MVVM.ViewModel
                 OnPropertyChanged("BeamHeight");
             }
         }
-        private int _rebarNumberTop;
 
+        private int _rebarNumberTop = 2;
         public int RebarNumberTop 
         { 
             get => _rebarNumberTop; 
@@ -66,8 +66,7 @@ namespace _13.WPF_Canvas.MVVM.ViewModel
             } 
         }
 
-        private int _rebarNumberBot;
-
+        private int _rebarNumberBot = 2;
         public int RebarNumberBot
         {
             get => _rebarNumberBot;
@@ -80,6 +79,7 @@ namespace _13.WPF_Canvas.MVVM.ViewModel
 
         public void DrawBeamSetion(Canvas viewCanvas)
         {
+            viewCanvas.Children.Clear();
             //int v = viewCanvas.Children.Count;
             //if (v > 0)
             //{
@@ -92,6 +92,7 @@ namespace _13.WPF_Canvas.MVVM.ViewModel
 
             if (BeamWidth != 0 && BeamHeight != 0)
             {
+                //Vẽ tiết diện dầm
                 Rectangle rectangle = new Rectangle
                 {
                     Width = BeamWidth,
@@ -103,46 +104,31 @@ namespace _13.WPF_Canvas.MVVM.ViewModel
                 Canvas.SetTop(rectangle, viewCanvas.ActualHeight / 2 - BeamHeight / 2);
                 viewCanvas.Children.Add(rectangle);
 
+                //Vẽ thép đai
+                //Path path = new Path();
+               
+                //Polyline polyline = new Polyline();
+                
+                //Vẽ thép lớp trên 1
                 for (int i = 0; i < RebarNumberTop; i++)
                 {
                     int kcThep = (BeamWidth - 50) / (RebarNumberTop - 1);
                     Ellipse ellipse = new Ellipse { Height = 16, Width = 16, StrokeThickness = 1, Stroke = Brushes.Black, Fill = Brushes.Black };
-
                     Canvas.SetLeft(ellipse, viewCanvas.ActualWidth / 2 - BeamWidth / 2 + 16 + kcThep * i);
                     Canvas.SetTop(ellipse, viewCanvas.ActualHeight / 2 - BeamHeight / 2 + 16);
                     viewCanvas.Children.Add(ellipse);
                 }
 
+                //Vẽ thép lớp dưới 1
                 for (int i = 0; i < RebarNumberBot; i++)
                 {
                     int kcThep = (BeamWidth - 50) / (RebarNumberBot - 1);
                     Ellipse ellipse = new Ellipse { Height = 16, Width = 16, StrokeThickness = 1, Stroke = Brushes.Black, Fill = Brushes.Black };
-
                     Canvas.SetLeft(ellipse, viewCanvas.ActualWidth / 2 - BeamWidth / 2 + 16 + kcThep * i);
                     Canvas.SetTop(ellipse, viewCanvas.ActualHeight / 2 - BeamHeight / 2 + BeamHeight - 32);
                     viewCanvas.Children.Add(ellipse);
                 }
-
-
             }
-        }
-
-        //public void DrawRebarTop(Canvas viewCanvas)
-        //{
-        //    for (int i = 0; i < RebarNumberTop; i++)
-        //    {
-        //        int kcThep = (BeamWidth - 50) / (RebarNumberTop- 1);
-        //        Ellipse ellipse = new Ellipse { Height = 16, Width = 16, StrokeThickness = 1, Stroke = Brushes.Black, Fill = Brushes.Black };
-
-        //        Canvas.SetLeft(ellipse, viewCanvas.ActualWidth / 2 - BeamWidth / 2 +  16 + kcThep *i);
-        //        Canvas.SetTop(ellipse, viewCanvas.ActualHeight / 2 - BeamHeight / 2 + 16);
-        //        viewCanvas.Children.Add(ellipse);
-        //    }
-            
-
-        //}
-
-      
-        
+        } 
     }
 }
