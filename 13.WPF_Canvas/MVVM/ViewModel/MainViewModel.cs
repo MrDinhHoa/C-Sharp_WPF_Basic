@@ -22,6 +22,7 @@ using System.Windows.Shapes;
 using _13.WPF_Canvas.MVVM.Model;
 using TextBox = System.Windows.Controls.TextBox;
 using MessageBox = System.Windows.MessageBox;
+using FontFamily = System.Windows.Media.FontFamily;
 
 namespace _13.WPF_Canvas.MVVM.ViewModel
 {
@@ -117,17 +118,18 @@ namespace _13.WPF_Canvas.MVVM.ViewModel
                 };
                 Canvas.SetLeft(rectangle, viewCanvas.ActualWidth / 2 - BeamWidth / 2);
                 Canvas.SetTop(rectangle, viewCanvas.ActualHeight / 2 - BeamHeight / 2);
+
                 viewCanvas.Children.Add(rectangle);
                 #endregion
 
                 #region Vẽ thép đai 2 nhánh dầm
-                PathGeometry pthGeometry = MainModel.GetStirrupPath(BeamWidth - 20, BeamHeight - 20, 16);
+                PathGeometry pthGeometry = MainModel.GetStirrupPath(BeamWidth - 25, BeamHeight - 25, 15);
                 Path arcPath = new Path();
                 arcPath.Stroke = new SolidColorBrush(Colors.Black);
                 arcPath.StrokeThickness = 3;
                 arcPath.Data = pthGeometry;
-                Canvas.SetLeft(arcPath, viewCanvas.ActualWidth / 2 - (BeamWidth - 20)/ 2);
-                Canvas.SetTop(arcPath, viewCanvas.ActualHeight / 2 - (BeamHeight - 20) / 2);
+                Canvas.SetLeft(arcPath, viewCanvas.ActualWidth / 2 - (BeamWidth - 25)/ 2);
+                Canvas.SetTop(arcPath, viewCanvas.ActualHeight / 2 - (BeamHeight - 25) / 2);
                 viewCanvas.Children.Add(arcPath);
                 #endregion
 
@@ -154,30 +156,65 @@ namespace _13.WPF_Canvas.MVVM.ViewModel
                 #endregion
 
                 #region Ghi chú thép lớp trên
-                //TextBlock noteThepTop = new TextBlock();
-                //noteThepTop.TextAlignment = TextAlignment.Center;
-                //noteThepTop.Text = RebarNumberTop.ToString() + "T" + RebarDiaTop.ToString();
-                //Canvas.SetLeft(noteThepTop, viewCanvas.ActualWidth / 2 - 20);
-                //Canvas.SetTop(noteThepTop, viewCanvas.ActualHeight / 2);
-                //viewCanvas.Children.Add(noteThepTop);
+                TextBlock noteThepTop = new TextBlock();
+                noteThepTop.Width = viewCanvas.ActualWidth;
+                noteThepTop.TextAlignment = TextAlignment.Center;
+                noteThepTop.FontFamily = new FontFamily("Arial Narrow");
+                noteThepTop.FontSize = 20;
+                noteThepTop.Text = RebarNumberTop.ToString() + "T" + RebarDiaTop.ToString();
+                Canvas.SetTop(noteThepTop, viewCanvas.ActualHeight / 2);
+                viewCanvas.Children.Add(noteThepTop);
                 #endregion
 
                 #region Ghi chú thép lớp dưới
-                //TextBlock noteThepBot = new TextBlock();
-                //noteThepBot.TextAlignment = TextAlignment.Center;
-                //noteThepBot.Text = RebarNumberBot.ToString() + "T" + RebarDiaBot.ToString();
-                //Canvas.SetLeft(noteThepBot, viewCanvas.ActualWidth / 2);
-                //Canvas.SetTop(noteThepBot, viewCanvas.ActualHeight / 2 + 20);
-                //viewCanvas.Children.Add(noteThepBot);
-                System.Windows.Controls.Label label = new System.Windows.Controls.Label();
-                label.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Center;
-                
-                label.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
-                label.Content = RebarNumberBot.ToString() + "T" + RebarDiaBot.ToString();
-                Canvas.SetLeft(label, viewCanvas.ActualWidth / 2);
-                Canvas.SetTop(label, viewCanvas.ActualHeight / 2);
-                viewCanvas.Children.Add(label);
+                TextBlock noteThepBot = new TextBlock();
+                noteThepBot.Width = viewCanvas.ActualWidth;
+                noteThepBot.TextAlignment = TextAlignment.Center;
+                noteThepBot.FontFamily = new FontFamily("Arial Narrow");
+                noteThepBot.FontSize = 20;
+                noteThepBot.Text = RebarNumberBot.ToString() + "T" + RebarDiaBot.ToString();
+                Canvas.SetTop(noteThepBot, viewCanvas.ActualHeight / 2 + 25);
+                viewCanvas.Children.Add(noteThepBot);
+                #endregion
 
+                #region Vẽ dim Width
+                PathGeometry dimWidthGeometry = MainModel.GetWidthDimRectangle(BeamWidth);
+                Path dimWidthPath = new Path();
+                dimWidthPath.Stroke = new SolidColorBrush(Colors.Black);
+                dimWidthPath.StrokeThickness = 1;
+                dimWidthPath.Data = dimWidthGeometry;
+                Canvas.SetLeft(dimWidthPath, viewCanvas.ActualWidth / 2 - BeamWidth  / 2);
+                Canvas.SetTop(dimWidthPath, viewCanvas.ActualHeight / 2 + BeamHeight / 2 + 50 );
+                viewCanvas.Children.Add(dimWidthPath);
+                TextBlock dimWidth = new TextBlock();
+                dimWidth.Width = viewCanvas.ActualWidth;
+                dimWidth.TextAlignment = TextAlignment.Center;
+                dimWidth.FontFamily = new FontFamily("Arial Narrow");
+                dimWidth.FontSize = 25;
+                dimWidth.Text = BeamWidth.ToString();
+                Canvas.SetTop(dimWidth, viewCanvas.ActualHeight / 2 + BeamHeight / 2 + 20);
+                viewCanvas.Children.Add(dimWidth);
+                #endregion
+
+                #region Vẽ dim Height
+                PathGeometry dimHeightGeometry = MainModel.GetHeightDimRectangle(BeamHeight);
+                Path dimHeightPath = new Path();
+                dimHeightPath.Stroke = new SolidColorBrush(Colors.Black);
+                dimHeightPath.StrokeThickness = 1;
+                dimHeightPath.Data = dimHeightGeometry;
+                Canvas.SetLeft(dimHeightPath, viewCanvas.ActualWidth / 2 - BeamWidth / 2-50);
+                Canvas.SetTop(dimHeightPath, viewCanvas.ActualHeight / 2 - BeamHeight / 2);
+                viewCanvas.Children.Add(dimHeightPath);
+                TextBlock dimHeight = new TextBlock();
+                dimHeight.Height = viewCanvas.ActualHeight;
+                dimHeight.TextAlignment = TextAlignment.Center;
+                dimHeight.FontFamily = new FontFamily("Arial Narrow");
+                dimHeight.FontSize = 25;
+                dimHeight.LayoutTransform = new RotateTransform(-90,0,0);
+                dimHeight.Text = BeamHeight.ToString();
+                Canvas.SetTop(dimHeight, viewCanvas.ActualHeight / 2);
+                Canvas.SetLeft(dimHeight, viewCanvas.ActualWidth/2 - BeamWidth/2 - 80);
+                viewCanvas.Children.Add(dimHeight);
                 #endregion
             }
         } 
