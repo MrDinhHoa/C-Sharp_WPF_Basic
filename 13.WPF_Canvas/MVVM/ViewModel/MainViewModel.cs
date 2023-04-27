@@ -154,23 +154,30 @@ namespace _13.WPF_Canvas.MVVM.ViewModel
                 #endregion
 
                 #region Ghi chú thép lớp trên
-                TextBlock noteThepTop = new TextBlock();
-                noteThepTop.TextAlignment = TextAlignment.Center;
-                noteThepTop.Text = RebarNumberTop.ToString() + "T" + RebarDiaTop.ToString();
-                Canvas.SetLeft(noteThepTop, viewCanvas.ActualWidth / 2 - 20);
-                Canvas.SetTop(noteThepTop, viewCanvas.ActualHeight / 2);
-                viewCanvas.Children.Add(noteThepTop);
+                //TextBlock noteThepTop = new TextBlock();
+                //noteThepTop.TextAlignment = TextAlignment.Center;
+                //noteThepTop.Text = RebarNumberTop.ToString() + "T" + RebarDiaTop.ToString();
+                //Canvas.SetLeft(noteThepTop, viewCanvas.ActualWidth / 2 - 20);
+                //Canvas.SetTop(noteThepTop, viewCanvas.ActualHeight / 2);
+                //viewCanvas.Children.Add(noteThepTop);
                 #endregion
 
                 #region Ghi chú thép lớp dưới
-                TextBlock noteThepBot = new TextBlock();
-                noteThepBot.TextAlignment = TextAlignment.Center;
-                noteThepBot.Text = RebarNumberBot.ToString() + "T" + RebarDiaBot.ToString();
-                Canvas.SetLeft(noteThepBot, viewCanvas.ActualWidth / 2);
-                Canvas.SetTop(noteThepBot, viewCanvas.ActualHeight / 2 + 20);
-                viewCanvas.Children.Add(noteThepBot);
+                //TextBlock noteThepBot = new TextBlock();
+                //noteThepBot.TextAlignment = TextAlignment.Center;
+                //noteThepBot.Text = RebarNumberBot.ToString() + "T" + RebarDiaBot.ToString();
+                //Canvas.SetLeft(noteThepBot, viewCanvas.ActualWidth / 2);
+                //Canvas.SetTop(noteThepBot, viewCanvas.ActualHeight / 2 + 20);
+                //viewCanvas.Children.Add(noteThepBot);
+                System.Windows.Controls.Label label = new System.Windows.Controls.Label();
+                label.HorizontalContentAlignment = System.Windows.HorizontalAlignment.Center;
+                
+                label.HorizontalAlignment = System.Windows.HorizontalAlignment.Center;
+                label.Content = RebarNumberBot.ToString() + "T" + RebarDiaBot.ToString();
+                Canvas.SetLeft(label, viewCanvas.ActualWidth / 2);
+                Canvas.SetTop(label, viewCanvas.ActualHeight / 2);
+                viewCanvas.Children.Add(label);
 
-                MessageBox.Show(noteThepBot.FontSize.ToString());   
                 #endregion
             }
         } 
