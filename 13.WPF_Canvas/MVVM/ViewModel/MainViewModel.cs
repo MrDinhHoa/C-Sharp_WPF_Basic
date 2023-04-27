@@ -19,6 +19,9 @@ using Brushes = System.Windows.Media.Brushes;
 using System.Windows.Forms;
 using System.Windows;
 using System.Windows.Shapes;
+using _13.WPF_Canvas.MVVM.Model;
+using TextBox = System.Windows.Controls.TextBox;
+using MessageBox = System.Windows.MessageBox;
 
 namespace _13.WPF_Canvas.MVVM.ViewModel
 {
@@ -77,22 +80,34 @@ namespace _13.WPF_Canvas.MVVM.ViewModel
             }
         }
 
+        private int _rebarDiaTop = 16;
+        public int RebarDiaTop
+        {
+            get => _rebarDiaTop;
+            set
+            {
+                _rebarDiaTop = value;
+                OnPropertyChanged("RebarDiaTop");
+            }
+        }
+
+        private int _rebarDiaBot = 16;
+        public int RebarDiaBot
+        {
+            get => _rebarDiaBot;
+            set
+            {
+                _rebarDiaBot = value;
+                OnPropertyChanged("RebarDiaBot");
+            }
+        }
+
         public void DrawBeamSetion(Canvas viewCanvas)
         {
             viewCanvas.Children.Clear();
-            //int v = viewCanvas.Children.Count;
-            //if (v > 0)
-            //{
-            //    for (int i = 0; i < v;)
-            //    {
-            //        viewCanvas.Children.RemoveAt(i);
-            //        i++;
-            //    }
-            //}
-
             if (BeamWidth != 0 && BeamHeight != 0)
             {
-                //Vẽ tiết diện dầm
+                #region Vẽ tiết diện dầm
                 Rectangle rectangle = new Rectangle
                 {
                     Width = BeamWidth,
@@ -103,32 +118,20 @@ namespace _13.WPF_Canvas.MVVM.ViewModel
                 Canvas.SetLeft(rectangle, viewCanvas.ActualWidth / 2 - BeamWidth / 2);
                 Canvas.SetTop(rectangle, viewCanvas.ActualHeight / 2 - BeamHeight / 2);
                 viewCanvas.Children.Add(rectangle);
+                #endregion
 
-                //Vẽ thép đai
-                //Path path = new Path();
-                
-                //Polyline polyline = new Polyline();
-                System.Windows.Point point = new System.Windows.Point(0,50);
-                System.Windows.Size size = new System.Windows.Size(5, 10);
-                SweepDirection sweepDirection = SweepDirection.Clockwise;
-                ArcSegment arcSeg = new ArcSegment(point, size, Math.PI / 2, false, sweepDirection, true);
-                PathSegmentCollection myPathSegmentCollection = new PathSegmentCollection();
-                myPathSegmentCollection.Add(arcSeg);
-                PathFigure pthFigure = new PathFigure();
-                pthFigure.Segments = myPathSegmentCollection;
-
-                PathFigureCollection pthFigureCollection = new PathFigureCollection();
-                pthFigureCollection.Add(pthFigure);
-
-                PathGeometry pthGeometry = new PathGeometry();
-                pthGeometry.Figures = pthFigureCollection;
-
+                #region Vẽ thép đai 2 nhánh dầm
+                PathGeometry pthGeometry = MainModel.GetStirrupPath(BeamWidth - 20, BeamHeight - 20, 16);
                 Path arcPath = new Path();
                 arcPath.Stroke = new SolidColorBrush(Colors.Black);
-                arcPath.StrokeThickness = 1;
+                arcPath.StrokeThickness = 3;
                 arcPath.Data = pthGeometry;
+                Canvas.SetLeft(arcPath, viewCanvas.ActualWidth / 2 - (BeamWidth - 20)/ 2);
+                Canvas.SetTop(arcPath, viewCanvas.ActualHeight / 2 - (BeamHeight - 20) / 2);
                 viewCanvas.Children.Add(arcPath);
-                //Vẽ thép lớp trên 1
+                #endregion
+
+                #region Vẽ thép lớp trên 1
                 for (int i = 0; i < RebarNumberTop; i++)
                 {
                     int kcThep = (BeamWidth - 50) / (RebarNumberTop - 1);
@@ -137,8 +140,9 @@ namespace _13.WPF_Canvas.MVVM.ViewModel
                     Canvas.SetTop(ellipse, viewCanvas.ActualHeight / 2 - BeamHeight / 2 + 16);
                     viewCanvas.Children.Add(ellipse);
                 }
+                #endregion
 
-                //Vẽ thép lớp dưới 1
+                #region Vẽ thép lớp dưới 1
                 for (int i = 0; i < RebarNumberBot; i++)
                 {
                     int kcThep = (BeamWidth - 50) / (RebarNumberBot - 1);
@@ -147,6 +151,27 @@ namespace _13.WPF_Canvas.MVVM.ViewModel
                     Canvas.SetTop(ellipse, viewCanvas.ActualHeight / 2 - BeamHeight / 2 + BeamHeight - 32);
                     viewCanvas.Children.Add(ellipse);
                 }
+                #endregion
+
+                #region Ghi chú thép lớp trên
+                TextBlock noteThepTop = new TextBlock();
+                noteThepTop.TextAlignment = TextAlignment.Center;
+                noteThepTop.Text = RebarNumberTop.ToString() + "T" + RebarDiaTop.ToString();
+                Canvas.SetLeft(noteThepTop, viewCanvas.ActualWidth / 2 - 20);
+                Canvas.SetTop(noteThepTop, viewCanvas.ActualHeight / 2);
+                viewCanvas.Children.Add(noteThepTop);
+                #endregion
+
+                #region Ghi chú thép lớp dưới
+                TextBlock noteThepBot = new TextBlock();
+                noteThepBot.TextAlignment = TextAlignment.Center;
+                noteThepBot.Text = RebarNumberBot.ToString() + "T" + RebarDiaBot.ToString();
+                Canvas.SetLeft(noteThepBot, viewCanvas.ActualWidth / 2);
+                Canvas.SetTop(noteThepBot, viewCanvas.ActualHeight / 2 + 20);
+                viewCanvas.Children.Add(noteThepBot);
+
+                MessageBox.Show(noteThepBot.FontSize.ToString());   
+                #endregion
             }
         } 
     }
