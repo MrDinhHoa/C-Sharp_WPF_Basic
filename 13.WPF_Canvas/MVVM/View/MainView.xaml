@@ -10,7 +10,7 @@
         DataContext="{Binding Source={x:Static vm:MainViewModel.canvas}}"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MainView" Height="600" Width="700">
+        Title="MainView" Height="800" Width="700">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -18,32 +18,132 @@
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Margin="10">
-            <TextBox x:Name="beamWidthBox"
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox 
+                     Margin="0,0,0,10"
+                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                     ms:HintAssist.Hint="Chiều rộng khung"
+                     Text="{Binding FrameWidth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     MouseLeave="MoveLeave_beamSection"/>
+                <TextBox Grid.Column="1"
+                     Margin="0,0,0,10"
+                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                     ms:HintAssist.Hint="Chiều cao khung"
+                     Text="{Binding FrameHeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     MouseLeave="MoveLeave_beamSection"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="beamWidthBox"
                      Margin="0,0,0,10"
                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
                      ms:HintAssist.Hint="Chiều rộng dầm"
                      Text="{Binding BeamWidth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      MouseLeave="MoveLeave_beamSection"/>
 
-            <TextBox x:Name="beamHeightBox"
+                <TextBox x:Name="beamHeightBox"
+                     Grid.Column="1"
                      Margin="0,0,0,10"
                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
                      ms:HintAssist.Hint="Chiều cao dầm"
                      Text="{Binding BeamHeight, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      MouseLeave="MoveLeave_beamSection"/>
+            </Grid>
+            <TextBlock Text="Thép lớp trên - Lớp 1:"
+                       FontFamily="Arial Narrow"
+                       Style="{StaticResource MaterialDesignBodyMediumTextBlock}" 
+                       TextDecorations="Underline"/>
+            <Grid Margin="0,10,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Margin="0,0,0,10"
+                     Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                     ms:HintAssist.Hint="Số lượng:"
+                     Text="{Binding RebarNumberTop1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     MouseLeave="MoveLeave_beamSection"/>
+                <TextBox Grid.Column="1"
+                        Margin="0,0,0,10"
+                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                         ms:HintAssist.Hint="Đường kính:"
+                         Text="{Binding RebarDiaTop1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         MouseLeave="MoveLeave_beamSection"/>
+            </Grid>
+            <CheckBox IsChecked="{Binding IsTop2Check}" 
+                      Content="Thép lớp trên - Lớp 2:"
+                      FontFamily="Arial Narrow"
+                      Height="20"/>
+            <Grid Margin="0,10,0,0"
+                  IsEnabled="{Binding IsTop2Check}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Margin="0,0,0,10"
+                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                         ms:HintAssist.Hint="Số lượng:"
+                         Text="{Binding RebarNumberTop2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         MouseLeave="MoveLeave_beamSection"/>
+                <TextBox Grid.Column="1"
+                        Margin="0,0,0,10"
+                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                         ms:HintAssist.Hint="Đường kính:"
+                         Text="{Binding RebarDiaTop2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         MouseLeave="MoveLeave_beamSection"/>
 
-            <TextBox x:Name="rebarTop1Box"
+            </Grid>
+            <TextBlock Text="Thép lớp dưới - Lớp 1:"
+                       FontFamily="Arial Narrow"
+                       Style="{StaticResource MaterialDesignBodyMediumTextBlock}" 
+                       TextDecorations="Underline"/>
+            <Grid Margin="0,10,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="rebarBot1Box"
                      Margin="0,0,0,10"
                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                     ms:HintAssist.Hint="Số lượng thép lớp trên"
-                     Text="{Binding RebarNumberTop, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     ms:HintAssist.Hint="Số lượng:"
+                     Text="{Binding RebarNumberBot1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      MouseLeave="MoveLeave_beamSection"/>
-            <TextBox x:Name="rebarBot1Box"
+                <TextBox Grid.Column="1"
+                        Margin="0,0,0,10"
+                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                         ms:HintAssist.Hint="Đường kính:"
+                         Text="{Binding RebarDiaBot1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         MouseLeave="MoveLeave_beamSection"/>
+            </Grid>
+            <CheckBox Height="20" 
+                      IsChecked="{Binding IsBot2Check}" 
+                      Content="Thép lớp dưới - Lớp 2:" 
+                      FontFamily="Arial Narrow"/>
+            <Grid Margin="0,10,0,0" IsEnabled="{Binding IsBot2Check}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="rebarBot2Box"
                      Margin="0,0,0,10"
                      Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                     ms:HintAssist.Hint="Số lượng thép lớp dưới"
-                     Text="{Binding RebarNumberBot, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     ms:HintAssist.Hint="Số lượng:"
+                     Text="{Binding RebarNumberBot2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      MouseLeave="MoveLeave_beamSection"/>
+                <TextBox Grid.Column="1"
+                        Margin="0,0,0,10"
+                         Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                         ms:HintAssist.Hint="Đường kính:"
+                         Text="{Binding RebarDiaBot2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         MouseLeave="MoveLeave_beamSection"/>
+            </Grid>
         </StackPanel>
         <Canvas 
             x:Name="viewCanvas"
