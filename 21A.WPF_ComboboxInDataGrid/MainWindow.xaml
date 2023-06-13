@@ -10,7 +10,9 @@
         <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Sports}" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding SportName}"/>
-                <DataGridComboBoxColumn SelectedValueBinding="{Binding SelectedOption, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedValuePath="OptionId" DisplayMemberPath="TeamName" >
+                <DataGridComboBoxColumn SelectedValueBinding="{Binding SelectedOption, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                                        SelectedValuePath="OptionId" 
+                                        DisplayMemberPath="TeamName" >
                     <DataGridComboBoxColumn.ElementStyle>
                         <Style TargetType="ComboBox">
                             <Setter Property="ItemsSource" Value="{Binding Options}"/>

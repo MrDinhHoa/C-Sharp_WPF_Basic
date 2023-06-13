@@ -14,3 +14,18 @@ D:\STUDY\Programming\C-Sharp\01.CS_WPF_Basic\21A.WPF_ComboboxInDataGrid\obj\Debu
 D:\STUDY\Programming\C-Sharp\01.CS_WPF_Basic\21A.WPF_ComboboxInDataGrid\obj\Debug\21A.WPF_ComboboxInDataGrid.csproj.CoreCompileInputs.cache
 D:\STUDY\Programming\C-Sharp\01.CS_WPF_Basic\21A.WPF_ComboboxInDataGrid\obj\Debug\21A.WPF_ComboboxInDataGrid.exe
 D:\STUDY\Programming\C-Sharp\01.CS_WPF_Basic\21A.WPF_ComboboxInDataGrid\obj\Debug\21A.WPF_ComboboxInDataGrid.pdb
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21A.WPF_ComboboxInDataGrid\bin\Debug\21A.WPF_ComboboxInDataGrid.exe.config
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21A.WPF_ComboboxInDataGrid\bin\Debug\21A.WPF_ComboboxInDataGrid.exe
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21A.WPF_ComboboxInDataGrid\bin\Debug\21A.WPF_ComboboxInDataGrid.pdb
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21A.WPF_ComboboxInDataGrid\obj\Debug\21A.WPF_ComboboxInDataGrid.csproj.AssemblyReference.cache
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21A.WPF_ComboboxInDataGrid\obj\Debug\MainWindow.g.cs
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21A.WPF_ComboboxInDataGrid\obj\Debug\App.g.cs
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21A.WPF_ComboboxInDataGrid\obj\Debug\21A.WPF_ComboboxInDataGrid_MarkupCompile.cache
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21A.WPF_ComboboxInDataGrid\obj\Debug\21A.WPF_ComboboxInDataGrid_MarkupCompile.lref
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21A.WPF_ComboboxInDataGrid\obj\Debug\MainWindow.baml
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21A.WPF_ComboboxInDataGrid\obj\Debug\21A.WPF_ComboboxInDataGrid.g.resources
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21A.WPF_ComboboxInDataGrid\obj\Debug\_21A.WPF_ComboboxInDataGrid.Properties.Resources.resources
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21A.WPF_ComboboxInDataGrid\obj\Debug\21A.WPF_ComboboxInDataGrid.csproj.GenerateResource.cache
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21A.WPF_ComboboxInDataGrid\obj\Debug\21A.WPF_ComboboxInDataGrid.csproj.CoreCompileInputs.cache
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21A.WPF_ComboboxInDataGrid\obj\Debug\21A.WPF_ComboboxInDataGrid.exe
+D:\01. WORKING\00. C-Sharp\01.CS_WPF_Basic\21A.WPF_ComboboxInDataGrid\obj\Debug\21A.WPF_ComboboxInDataGrid.pdb
